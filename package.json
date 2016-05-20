@@ -3,6 +3,9 @@
   "version": "0.13.2",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
+  "scripts": {
+    "test": "node test"
+  },
   "devDependencies": {
     "css-loader": "~0.8.0",
     "file-loader": "^0.10.1",
