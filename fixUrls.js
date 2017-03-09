@@ -24,7 +24,7 @@ module.exports = function (css) {
 	  return css;
   }
 
-  var baseUrl = location.protocol + location.host;
+  var baseUrl = location.protocol + "//" + location.host;
   var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
 
 	// convert each url(...)
@@ -37,20 +37,20 @@ module.exports = function (css) {
 		// already a full url? no change
 		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
 		  return fullMatch;
-    }
+		}
 
 		// convert the url to a full url
 		var newUrl;
 
 		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  // add protocol
-			newUrl = location.protocol + unquotedOrigUrl;
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
 		} else if (unquotedOrigUrl.indexOf("/") === 0) {
 			// path should be relative to the base url
 			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
 		} else {
-      // path should be relative to current directory
-      newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, "") // Strip leading './'
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
 		}
 
 		// send back the fixed url(...)
