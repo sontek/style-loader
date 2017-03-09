@@ -3,6 +3,10 @@
   "version": "0.13.2",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
+  "scripts": {
+    "test": "mocha",
+    "travis:test": "yarn run test"
+  },
   "devDependencies": {
     "css-loader": "~0.8.0",
     "file-loader": "^0.10.1",
@@ -18,9 +22,5 @@
   "license": "MIT",
   "dependencies": {
     "loader-utils": "^1.0.2"
-  },
-  "scripts": {
-    "test": "mocha",
-    "travis:test": "yarn run test"
   }
 }
